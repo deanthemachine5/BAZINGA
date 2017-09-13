@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Natural Gas Payback Calculator</title>
+    <link href="style/kendo.common.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/kendo.web.min.js"></script>
+    <script src="js/Config.js"></script>
+    <script src="js/CngCalculator.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arimo: 400, 700' rel='stylesheet' type='text/css'>
+
+    
+    <script>
+        $(document).ready(function () {
+            $Dean.Config.InitializeKendoSliders();
+        })
+    </script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="equalizer">
+  
+              <div class="slider-wrapper">
+                <span class="section-label">Fleet Size</span><br>
+                <input id="FleetSize" class="eqSlider" data-value-update="change" data-bind="value: FleetSize.Value, events: { slide: onChange }" />
+                <div class="left"><span data-bind="text: FleetSize.Formatted" class="smallLabel"></span><span class="smallLabel textAlignLeft">Truck(s)</span></div>
+                <div class="clear"></div>
+            </div>   
+            
+            <div class="slider-wrapper">
+                <span class="section-label">Average Miles Per Year</span><br>
+                <input id="AvgMilesPerYear" class="eqSlider" data-value-update="change" data-bind="value: AvgMilesPerYear.Value, events: { slide: onChange }" />
+                <div class="left"><span data-bind="text: AvgMilesPerYear.Formatted" class="smallLabel"></span><span class="smallLabel textAlignLeft">Miles</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="slider-wrapper">
+                <span class="section-label">Average Diesel MPG</span><br>
+                <input id="AvgDieselMPG" class="eqSlider" data-value-update="change" data-value-min data-value-max="200" data-bind="value: AvgDieselMPG.Value, events: { slide: onChange }" />
+                <div class="left"><span data-bind="text: AvgDieselMPG.Formatted" class="smallLabel"></span><span class="smallLabel textAlignLeft">MPG</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="slider-wrapper">
+                <span class="section-label">Diesel Fuel Cost</span><br>
+                <input id="DieselCost" class="eqSlider" data-value-update="change" data-bind="value: DieselCost.Value, events: { slide: onChange }" />
+                <div class="left"><span class="smallLabel textAlignRight">$</span><span data-bind="text: DieselCost.Formatted" class="smallLabel textAlignLeft"></span> </div>
+                <div class="clear"></div>
+            </div>
+            <div class="slider-wrapper">
+                <span class="section-label">Natural Gas Fuel Cost</span><br>
+                <input id="NaturalGasCost" class="eqSlider" data-value-update="change" data-bind="value: NaturalGasCost.Value, events: { slide: onChange }" />
+                <div class="left"><span class="smallLabel textAlignRight">$</span><span data-bind="text: NaturalGasCost.Formatted" class="smallLabel textAlignLeft"></span> </div>
+                <div class="clear"></div>
+            </div>
+            <div class="slider-wrapper">
+                <span class="section-label">Incremental NG Truck Cost</span><br>
+                <input id="IncrementalNGTruckCost" class="eqSlider" data-value-update="change" data-bind="value: IncrementalNGTruckCost.Value, events: { slide: onChange }" />
+                <div class="left"><span class="smallLabel textAlignRight">$</span><span data-bind="text: IncrementalNGTruckCost.Formatted" class="smallLabel textAlignLeft"></span> </div>
+                <div class="clear"></div>
+            </div>
+            <div class="slider-wrapper-last">
+                <span class="section-label">Government Incentives</span><br>
+                <input id="GovernmentIncentives" class="eqSlider" data-value-update="change" data-bind="value: GovernmentIncentives.Value, events: { slide: onChange }" />
+                <div class="left"><span class="smallLabel textAlignRight">$</span><span data-bind="text: GovernmentIncentives.Formatted" class="smallLabel textAlignLeft"></span> </div>
+                <div class="clear"></div>
+      </div>
+            
+
+<br>
+
+</div>
+<div id="my_div">
+  <table width="400" border="4" cellspacing="0" cellpadding="10">
+	  	<tr align="left" bgcolor="#45A5FF">
+  		  	<td width="200" height="30px" style="color:#FFF" colspan="2"><p class="cell-label">Natural Gas</p></td>
+  		  	<td width="200" height="30px" style="color:#FFF" colspan="2"><p class="cell-label">Diesel</p></td>
+	  	</tr>
+        <tr align="left" class="tr-gradient">
+          	<td width="200" colspan="2"><p class="cell tr-gradient">Gallon Equivalent Used</p></td>
+			<td width="200" colspan="2"><p class="cell">Gallons Diesel Used</p></td>
+        </tr>
+        <tr align="left" class="tr-gradient">
+        	<td width="25"><img src="images/icon-fuel-nozzle.png"></td>
+            <td width"175" align="left"><span class="cell  resultsText" data-bind="text: NaturalGasGallonEquivalentsUsed.Formatted"></span></td>
+            <td width="25"><img src="images/icon-fuel-nozzle.png"></td>
+            <td width="175" align="left"><span class="cell resultsText" data-bind="text: DieselGallonsUsed.Formatted"></span></td>
+        </tr>
+        <tr>
+         	<td colspan="4" align="center" bgcolor="#FFFFFF" height="1px"></td>
+        </tr>
+        <tr class="tr-gradient">
+          	<td colspan="2" width="200"><p class="cell">Annual Natural Gas Cost</p></td>
+          	<td colspan="2" width="200"><p class="cell paddingTop">Annual Diesel Cost</p></td>
+        </tr>
+        <tr class="tr-gradient">
+        	<td width="25"><img src="images/icon-dollar-sign.png"></td>
+            <td width"175" align="left"><span class="cell borderRight resultsText" data-bind="text: NaturalGasAnnualFuelCost.Formatted"></span></td>
+            <td width="25"><img src="images/icon-dollar-sign.png"></td>
+            <td width="175"><span class="cell resultsText" data-bind="text: DieselAnnualFuelCost.Formatted"></span></td>
+ 		</tr>           
+ </table>
+&nbsp;
+
+  <table width="400" border="4" cellspacing="0" cellpadding="10">
+  		<tr align="left" bgcolor="#45A5FF">
+    		<td height="30px" colspan="4"><p class="cell-label" style="color:#FFF">Results</p></td>
+        </tr>
+        <tr align="left" class="tr-gradient">
+   			<td width="200" colspan="2"><p class="cell">Payback (Years)</p></td>
+    		<td width="200" colspan="2" align="left"><p class="cell">Annual Fuel Savings</p></td>
+  		</tr>
+        <tr align="left" class="tr-gradient">
+        	<td width="25"><img src="images/icon-calendar.png"></td>
+            <td width="175" align="left"><span id="DivPayback" class="cell fullWidth" data-bind="text: PaybackNaturalGasTruck"></span></td>
+            <td width="25" align="right"><img src="images/icon-dollar-sign.png"></td>
+            <td width="175"><span id="DivAnnualFuelSavings" class="cell fullWidth greenText" data-bind="text: AnnualFuelSavings.Formatted"></span></td>
+    	</tr>
+	</table>
+    
+</div>
+
+</div>
+</body>
+</html>

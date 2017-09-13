@@ -1,0 +1,12 @@
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\bin\Debug\WebMonitorService.exe.config
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\bin\Debug\WebMonitorService.exe
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\bin\Debug\WebMonitorService.pdb
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\obj\Debug\WebMonitorService.csprojResolveAssemblyReference.cache
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\obj\Debug\WebMonitorService.exe
+C:\Development\Common\WebMonitor\WindowsService\Dev\WebMonitorService\WebMonitorService\obj\Debug\WebMonitorService.pdb
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\bin\Debug\WebMonitorService.exe.config
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\obj\Debug\WebMonitorService.exe
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\obj\Debug\WebMonitorService.pdb
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\bin\Debug\WebMonitorService.exe
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\bin\Debug\WebMonitorService.pdb
+C:\Users\Owner\Desktop\Demo\WebMonitor\WebMonitorService\obj\Debug\WebMonitorService.csprojResolveAssemblyReference.cache
